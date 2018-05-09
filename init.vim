@@ -68,6 +68,7 @@ if has('nvim')
     Plug 'w0rp/ale' "linter
     Plug 'flazz/vim-colorschemes'
     Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
 
     call plug#end()
 endif
