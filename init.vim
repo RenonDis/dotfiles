@@ -1,3 +1,8 @@
+" Set UTF-8 encoding
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
+
 " Disabling arrows
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -16,6 +21,8 @@ nnoremap <C-Space> :e#<CR>
 
 " quicksave with F2
 nnoremap <F2> :w<CR>
+" in insert mode F2 will exit insert, save, enters insert again
+inoremap <F2> <ESC>:w<CR>i
 " remove trailing whitspaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -275,6 +282,23 @@ au FileType python set expandtab
 au FileType python set shiftwidth=4
 au FileType python set softtabstop=4
 au FileType python set tabstop=4
+
+"----------------------------------------------
+" Language: C++
+"----------------------------------------------
+au FileType cpp set smartindent
+au FileType cpp set expandtab
+au FileType cpp set shiftwidth=4
+au FileType cpp set softtabstop=4
+au FileType cpp set tabstop=4
+au FileType cpp set showmatch
+" intelligent comments
+au FileType cpp set comments=sl:/*,mb:\ *,elx:\ */
+" switch between header/source with F4
+au FileType cpp map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+" goto definition with F12
+au FileType cpp map <F12> <C-]>
+
 
 "----------------------------------------------
 " Language: YAML
