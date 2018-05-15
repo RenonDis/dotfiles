@@ -31,6 +31,8 @@ set PATH $GOPATH/bin $PATH
 - take shortcuts : alias vim=nvim
     - or : alias vim="nvr -s", puis ouvrir d'autres fichiers avec "nvr"
 
+cpp : take a look (here)[https://gist.github.com/rocarvaj/2513367]
+
 # Installation des plugins
 
 
