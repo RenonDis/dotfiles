@@ -27,6 +27,11 @@ set wrap
 set list
 syntax on
 
+" Enable mouse if possible
+if has('mouse')
+    set mouse=a
+endif
+
 " set highlight search but possibility to escape it as well
 set hlsearch
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
@@ -106,7 +111,7 @@ let NERDTreeIgnore = [
 \]
 
 " Close vim if NERDTree is the only opened window.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Show hidden files by default.
 let NERDTreeShowHidden = 1
