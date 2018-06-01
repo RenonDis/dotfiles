@@ -35,9 +35,9 @@ set list
 syntax on
 
 " Enable mouse if possible
-if has('mouse')
-    set mouse=a
-endif
+" if has('mouse')
+"     set mouse=a
+" endif
 
 " set highlight search but possibility to escape it as well
 set hlsearch
