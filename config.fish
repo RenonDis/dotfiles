@@ -9,7 +9,8 @@ source $OMF_PATH/init.fish
 export http_proxy=http://localhost:3128
 export https_proxy=http://localhost:3128
 
-alias vim="nvr -s"
+alias vim="env NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim"                    
+alias nvr="env NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvr"
 
 setxkbmap fr
 
