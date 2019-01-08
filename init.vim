@@ -13,18 +13,51 @@ nnoremap <right> <nop>
 " nnoremap <F5> :buffers<CR>:buffer<Space>
 " nnoremap <F4> :bp<bar>sp<bar>bn<bar>bd<CR>.
 
+" search and replace visual selection
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 " move among buffers with CTRL
 nnoremap <C-J> :bnext<CR>
 nnoremap <C-K> :bprev<CR>
 nnoremap <C-W><C-D> :BD<CR>
 nnoremap <C-Space> :e#<CR>
 
+" remap navigation keys to consider virtual lines rather than real ones
+nnoremap j gj
+nnoremap k gk
+xnoremap j gj
+xnoremap k gk
+
+" use bigger steps for j and k
+nmap <A-j> 5j
+nmap <A-k> 5k
+xmap <A-j> 5j
+xmap <A-k> 5k
+
+" use bigger steps for j and k
+nmap <A-h> b
+nmap <A-l> w
+xmap <A-h> b
+xmap <A-l> w
+
+" map return key to esc for speed
+inoremap <CR> <Esc>
+inoremap <A-CR> <CR>
+vnoremap <CR> <Esc>
+
+" map backspace to the opposite of J
+nnoremap <BS> i<CR>
+
 " quicksave with F2
 nnoremap <F2> :w<CR>
 " in insert mode F2 will exit insert, save, enters insert again
-inoremap <F2> <ESC>:w<CR>i
+inoremap <F2> <ESC>:w<CR>
 " remove trailing whitspaces on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" save and restore folds
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent loadview
 
 " sane defaults
 set autoindent
@@ -82,8 +115,18 @@ if has('nvim')
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
 
+    Plug 'guns/vim-clojure-static'
+    Plug 'tpope/vim-fireplace'
+    Plug 'tpope/vim-classpah'
     call plug#end()
 endif
+"
+"----------------------------------------------
+" Plugin: overtone
+"----------------------------------------------
+inoremap <F3> <ESC>:w<CR>:Eval<CR>
+nnoremap <F3> :w<CR>:Eval<CR>
+vnoremap <F3> :'<,'>Eval<CR>:w<CR>
 
 "----------------------------------------------
 " Plugin: vim-airline/vim-airline
