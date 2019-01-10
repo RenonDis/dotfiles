@@ -82,6 +82,11 @@ if has('nvim')
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
 
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    Plug 'nvie/vim-flake8'
+    Plug 'sudar/vim-arduino-snippets'
+
     call plug#end()
 endif
 
@@ -133,7 +138,7 @@ let g:delve_backend = "native"
 " Plugin: w0rp/ale
 "----------------------------------------------
 " Error and warning signs.
-let g:ale_sign_error = '⤫'
+let g:ale_sign_error = '●'
 let g:ale_sign_warning = '⚠'
 " Enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
@@ -183,11 +188,34 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 
 "----------------------------------------------
+" Plugin: SirVer/ultisnips
+"----------------------------------------------
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-²>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"----------------------------------------------
+" Plugin: nvie/vim-flake8
+"----------------------------------------------
+let g:flake8_error_marker='⚠'     " set error marker to 'EE'
+let g:flake8_warning_marker='⚠'   " set warning marker to 'WW'
+let g:flake8_pyflake_marker=''     " disable PyFlakes warnings
+let g:flake8_complexity_marker=''  " disable McCabe complexity warnings
+let g:flake8_naming_marker=''      " disable naming warnings
+
+"----------------------------------------------
 " Language: Default
 "----------------------------------------------
 set expandtab
 set shiftwidth =4
 set softtabstop =4
+
+"----------------------------------------------
+" Language: Arduino
+"----------------------------------------------
+autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
 "----------------------------------------------
 " Language: Golang
