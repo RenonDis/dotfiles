@@ -15,6 +15,10 @@ nnoremap <right> <nop>
 " nnoremap <F5> :buffers<CR>:buffer<Space>
 " nnoremap <F4> :bp<bar>sp<bar>bn<bar>bd<CR>.
 
+" emulate copy to clipboard
+vnoremap <C-c> "+y
+nnoremap <C-c> "+yy
+
 " search and replace visual selection
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
